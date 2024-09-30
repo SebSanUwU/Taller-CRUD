@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Properties</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="/script.js" defer></script>
+</head>
+<body>
+<main>
+    <div class="container mb-5">
+        <h1 class="mt-5">List of Properties</h1>
+
+        <!-- Lista de propiedades -->
+        <div class="box mt-5">
+            <div class="row">
+                <div class="col">
+                    <h4 class="mt-3 font-weight-bold">ID</h4>
+                </div>
+                <div class="col">
+                    <h4 class="mt-3 font-weight-bold">Address</h4>
+                </div>
+                <div class="col">
+                    <h4 class="mt-3 font-weight-bold">Price</h4>
+                </div>
+                <div class="col">
+                    <h4 class="mt-3 font-weight-bold">Size</h4>
+                </div>
+                <div class="col">
+                    <h4 class="mt-3 font-weight-bold">Description</h4>
+                </div>
+                <div class="col">
+                    <h4 class="mt-3 font-weight-bold">Actions</h4>
+                </div>
+            </div>
+
+            <div id="property-list">
+                <!-- Las propiedades se cargarán aquí mediante JavaScript -->
+            </div>
+            <!-- Botón para abrir el formulario de Create -->
+            <div class="mb-3">
+                <button class="btn btn-primary" onclick="openForm('create')">Create</button>
+            </div>
+            <button type="button" class="btn btn-secondary" onclick="fetchProperties()">Obtener Todas las Entidades</button>
+        </div>
+
+        <!-- Formulario Modal -->
+        <div class="container">
+            <form id="propertyFormModal" class="box mt-5" style="display:none;">
+                <h2 id="formTitle">Create Property</h2>
+                <div id="propertyIdForm" class="mb-3">
+                    <label for="propertyId">Property Id</label>
+                    <input type="text" id="propertyId" class="form-control" required />
+                </div>
+                <div class="mb-3">
+                    <label for="address">Address</label>
+                    <input type="text" id="address" class="form-control" required />
+                </div>
+                <div class="mb-3">
+                    <label for="price">Price</label>
+                    <input type="number" id="price" class="form-control" required />
+                </div>
+                <div class="mb-3">
+                    <label for="size">Size</label>
+                    <input type="number" id="size" class="form-control" required />
+                </div>
+                <div class="mb-3">
+                    <label for="description">Description</label>
+                    <textarea id="description" class="form-control" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="button" class="btn btn-secondary" onclick="closeForm()">Cancel</button>
+            </form>
+        </div>
+    </div>
+</main>
+</body>
+</html>
+
+
+
+

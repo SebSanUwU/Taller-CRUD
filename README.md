@@ -15,6 +15,36 @@ A continuación, se muestra una imagen de la arquitectura propuesta y desplegada
 
 **Se utilizaron dos máquinas EC2: una dedicada para el cliente + backend y otra para el servidor MySQL.**
 
+## Implementación del patrón MVC (Modelo-Vista-Controlador)
+
+Este proyecto sigue el patrón de diseño MVC, que separa la lógica de negocio, la interfaz de usuario y el control de flujo, facilitando el mantenimiento y la escalabilidad. A continuación se describe cómo cada componente del proyecto está estructurado dentro de este patrón:
+
+### 1. **Modelo**
+   El modelo se encarga de la lógica de negocio relacionada con las propiedades inmobiliarias y su interacción con la base de datos.
+   - **`RealEstateProperty`**: Representa una entidad de propiedad inmobiliaria en la base de datos.
+   - **`RealEstatePropertyRepository`**: Es el repositorio que extiende `JpaRepository` para realizar operaciones CRUD con la base de datos MySQL.
+
+### 2. **Vista**
+   La vista corresponde al **Cliente HTML**. Aquí es donde se presenta la información al usuario. La interfaz de usuario es manejada mediante HTML, CSS y JavaScript.
+   - Las peticiones del cliente se realizan a través de la **Fetch API** que se comunica con el backend mediante peticiones HTTP a los endpoints del controlador.
+
+### 3. **Controlador**
+   Los controladores manejan las solicitudes del cliente y coordinan las respuestas adecuadas del servidor. 
+   - **`RealEstatePropertyController.java`**: Es el controlador REST que maneja las solicitudes HTTP (`GET`, `POST`, `PUT`, `DELETE`) para la entidad `RealEstateProperty`. Define los endpoints para la gestión de propiedades inmobiliarias.
+   - **`HomeController.java`**: Controla las solicitudes básicas del servidor y redirige a la vista principal si es necesario.
+
+### Flujo del patrón MVC en el proyecto:
+
+1. **Cliente HTML** realiza una solicitud HTTP (por ejemplo, para consultar propiedades o crear una nueva) utilizando la Fetch API.
+2. **Backend**:
+   - El controlador recibe la solicitud y la procesa. Si se necesita interacción con la base de datos, el controlador delega la lógica de negocio al **servicio** correspondiente.
+   - El servicio, a su vez, interactúa con el **repositorio** para realizar consultas o modificaciones en la base de datos.
+3. **MySQL Server** almacena y gestiona los datos persistentes (propiedades inmobiliarias), y devuelve los resultados de las consultas o confirmaciones de operaciones.
+4. **Respuesta**: El controlador recibe la respuesta del servicio y la envía de vuelta al cliente, quien la renderiza en la vista.
+
+Este enfoque asegura una separación clara de responsabilidades, facilitando el mantenimiento y la evolución del proyecto.
+
+
 ## Iniciar el proyecto
 
 Estas instrucciones te ayudarán a obtener una copia del proyecto en funcionamiento en tu máquina local para fines de desarrollo.

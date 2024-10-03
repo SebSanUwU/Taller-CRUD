@@ -61,6 +61,11 @@ Estas instrucciones te ayudarán a obtener una copia del proyecto en funcionamie
 
 ### Instalación
 
+Antes de ejecutar el proyecto, es necesario crear la imagen de Docker para MySQL utilizando el siguiente comando. Asegúrate de que no existe una imagen con el mismo nombre en tu computadora:
+
+```
+docker run -p 3306:3306 --name some-mysql -e MYSQL_ROOT_PASSWORD=my-secret-pw -d mysql:latest
+```
 Pasos para poner en marcha la arquitectura:
 
 1. **Clonar el repositorio** desde GitHub:

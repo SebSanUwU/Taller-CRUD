@@ -10,6 +10,9 @@ Este proyecto consiste en la creación de una arquitectura de software para la c
 
 A continuación, se muestra una imagen de la arquitectura propuesta y desplegada en máquinas EC2 de AWS:
 
+![image](https://github.com/user-attachments/assets/6619c92d-85c7-4d3d-bb04-e1f5f29ccee6)
+
+
 **Se utilizaron dos máquinas EC2: una dedicada para el cliente + backend y otra para el servidor MySQL.**
 
 ## Iniciar el proyecto
